@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compileOnSave": false,
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/tshirt-designer-frontend-e2e"
+    },
+    {
+      "path": "./apps/tshirt-designer-frontend"
+    }
+  ]
+}
