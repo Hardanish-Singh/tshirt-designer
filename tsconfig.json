@@ -4,10 +4,10 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/tshirt-designer-frontend-e2e"
+      "path": "./apps/tshirt-designer-frontend"
     },
     {
-      "path": "./apps/tshirt-designer-frontend"
+      "path": "./apps/tshirt-designer-backend"
     }
   ]
 }

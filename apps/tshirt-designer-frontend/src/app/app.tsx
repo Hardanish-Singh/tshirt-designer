@@ -1,52 +1,67 @@
-// Uncomment this line to use CSS modules
-// import styles from './app.module.css';
-import NxWelcome from './nx-welcome';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { Link, Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import OrderDetails from './components/OrderDetails';
+import Orders from './components/Orders';
+import { Currency } from './types/types';
 
-import { Route, Routes, Link } from 'react-router-dom';
+const App = () => {
+  const [currency, setCurrency] = useState<Currency>({});
 
-export function App() {
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await axios.get('http://0.0.0.0:9000/exchangerates');
+        setCurrency(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    })();
+  }, []);
+
   return (
-    <div>
-      <NxWelcome title="tshirt-designer-frontend" />
+    <div className="flex flex-col min-h-screen">
+      <header className="bg-blue-500 text-white p-4">
+        <div className="container mx-auto flex justify-between items-center">
+          <h1 className="text-2xl font-bold">T-Shirt Designer</h1>
+          <nav>
+            <ul className="flex space-x-6">
+              <li>
+                <Link to="/" className="hover:underline">
+                  Home
+                </Link>{' '}
+              </li>
+              <li>
+                <Link to="/orders" className="hover:underline">
+                  Orders
+                </Link>{' '}
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
 
-      {/* START: routes */}
-      {/* These routes and navigation have been generated for you */}
-      {/* Feel free to move and update them to fit your needs */}
-      <br />
-      <hr />
-      <br />
-      <div role="navigation">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/page-2">Page 2</Link>
-          </li>
-        </ul>
-      </div>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              This is the generated root route.{' '}
-              <Link to="/page-2">Click here for page 2.</Link>
-            </div>
-          }
-        />
-        <Route
-          path="/page-2"
-          element={
-            <div>
-              <Link to="/">Click here to go back to root page.</Link>
-            </div>
-          }
-        />
-      </Routes>
-      {/* END: routes */}
+      <main className="flex-grow p-6">
+        <div className="container mx-auto">
+          <Routes>
+            <Route path="/" element={<Home currency={currency} />} />
+            <Route path="/orders" element={<Orders currency={currency} />} />
+            <Route
+              path="/orders/:id"
+              element={<OrderDetails currency={currency} />}
+            />
+          </Routes>
+        </div>
+      </main>
+
+      <footer className="bg-gray-800 text-white p-4 mt-auto">
+        <div className="container mx-auto text-center">
+          <p>&copy; 2025 T-Shirt Designer</p>
+        </div>
+      </footer>
     </div>
   );
-}
+};
 
 export default App;
