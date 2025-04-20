@@ -263,7 +263,7 @@ const Home = ({ currency }: { currency: Currency }) => {
                         Upload picture
                       </h5>
                       <p className="font-normal text-sm text-gray-400 md:px-6">
-                        Choose photo in{' '}
+                        Choose photo in
                         <b className="text-gray-600">JPG, PNG</b> format.
                       </p>
 
