@@ -30,12 +30,12 @@ const App = () => {
               <li>
                 <Link to="/" className="hover:underline">
                   Home
-                </Link>{' '}
+                </Link>
               </li>
               <li>
                 <Link to="/orders" className="hover:underline">
                   Orders
-                </Link>{' '}
+                </Link>
               </li>
             </ul>
           </nav>
