@@ -57,8 +57,8 @@ const Orders = ({ currency }: { currency: Currency }) => {
               <p className="text-gray-600">T-shirt Text: {order?.text}</p>
             )}
             <p className="text-gray-600 font-bold">
-              Price:{' '}
-              {(order?.price * (currency[order?.currency] || 1)).toFixed(2)}{' '}
+              Price:
+              {(order?.price * (currency[order?.currency] || 1)).toFixed(2)}
             </p>
           </div>
         ))}
