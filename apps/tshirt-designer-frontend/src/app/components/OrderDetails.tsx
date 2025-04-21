@@ -35,7 +35,9 @@ const OrderDetails = ({
     return <div>Loading...</div>;
   }
 
-  if (!order) return <div>Order not found.</div>;
+  if (!order) {
+    return <div>Order not found.</div>;
+  }
 
   return (
     <div className="container mx-auto p-4">
