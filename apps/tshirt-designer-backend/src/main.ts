@@ -1,7 +1,7 @@
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import express, { Request, Response } from 'express';
-import exchangeratesRoute from './routes/exchangeratesRoute';
+import exchangeRatesRoute from './routes/exchangeRatesRoute';
 import ordersRoute from './routes/ordersRoute';
 import uploadImageInChunksRoute from './routes/uploadImageInChunksRoute';
 
@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.urlencoded({ limit: '2mb', extended: true }));
 app.use(bodyParser.json({ limit: '2mb' }));
 
-app.use('/exchangerates', exchangeratesRoute);
+app.use('/exchangerates', exchangeRatesRoute);
 app.use('/upload-image-chunk', uploadImageInChunksRoute);
 app.use('/orders', ordersRoute);
 
