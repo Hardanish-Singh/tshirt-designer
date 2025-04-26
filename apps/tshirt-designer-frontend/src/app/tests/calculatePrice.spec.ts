@@ -128,16 +128,19 @@ describe('calculatePrice', () => {
     expect(calculatePrice(order)).toBe(32.95);
   });
 
-  // it('should return the correct price for a sweater with white color', () => {
-  //   const order = {
-  //     productType: 'sweater',
-  //     color: 'white',
-  //     material: 'light',
-  //     text: '',
-  //     image: [],
-  //   };
-  //   expect(calculatePrice(order)).toBe(28.95);
-  // });
+  it('should return the correct price for a sweater with white color', () => {
+    const order = {
+      productType: 'sweater',
+      color: 'white',
+      material: 'light',
+      text: '',
+      image: '',
+      price: 0,
+      currency: 'CAD',
+      isImageUploaded: false,
+    };
+    expect(calculatePrice(order)).toBe(28.95);
+  });
 
   // // Test case for invalid productType (if applicable)
   // it('should return 0 for an unknown product type', () => {
