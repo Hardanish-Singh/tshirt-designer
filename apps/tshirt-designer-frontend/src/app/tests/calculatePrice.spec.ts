@@ -72,16 +72,19 @@ describe('calculatePrice', () => {
     expect(calculatePrice(order)).toBe(28.95); // base price + 10 for image
   });
 
-  // it('should add price for heavy cotton material on a tshirt', () => {
-  //   const order = {
-  //     productType: 'tshirt',
-  //     color: 'green',
-  //     material: 'Heavy Cotton',
-  //     text: '',
-  //     image: [],
-  //   };
-  //   expect(calculatePrice(order)).toBe(21.95); // base price + 3 for heavy cotton material
-  // });
+  it('should add price for heavy cotton material on a tshirt', () => {
+    const order = {
+      productType: 'tshirt',
+      color: 'green',
+      material: 'Heavy Cotton',
+      text: '',
+      image: '',
+      price: 0,
+      currency: 'CAD',
+      isImageUploaded: false,
+    };
+    expect(calculatePrice(order)).toBe(21.95); // base price + 3 for heavy cotton material
+  });
 
   // // Test case for sweater product type with various color combinations
   // it('should return the correct price for a sweater with pink color', () => {
