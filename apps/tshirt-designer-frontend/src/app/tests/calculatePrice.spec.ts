@@ -86,17 +86,19 @@ describe('calculatePrice', () => {
     expect(calculatePrice(order)).toBe(21.95); // base price + 3 for heavy cotton material
   });
 
-  // // Test case for sweater product type with various color combinations
-  // it('should return the correct price for a sweater with pink color', () => {
-  //   const order = {
-  //     productType: 'sweater',
-  //     color: 'pink',
-  //     material: 'light',
-  //     text: '',
-  //     image: [],
-  //   };
-  //   expect(calculatePrice(order)).toBe(32.95);
-  // });
+  it('should return the correct price for a sweater with pink color', () => {
+    const order = {
+      productType: 'sweater',
+      color: 'pink',
+      material: 'light',
+      text: '',
+      image: '',
+      price: 0,
+      currency: 'CAD',
+      isImageUploaded: false,
+    };
+    expect(calculatePrice(order)).toBe(32.95);
+  });
 
   // it('should return the correct price for a sweater with black color', () => {
   //   const order = {
