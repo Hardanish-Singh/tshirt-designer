@@ -156,10 +156,4 @@ describe('calculatePrice', () => {
     };
     expect(calculatePrice(order)).toBe(0);
   });
-
-  // // Test case for an empty order
-  // it('should return 0 for an empty order object', () => {
-  //   const order = {};
-  //   expect(calculatePrice(order)).toBe(0);
-  // });
 });
