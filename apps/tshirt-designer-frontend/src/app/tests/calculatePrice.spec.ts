@@ -142,17 +142,20 @@ describe('calculatePrice', () => {
     expect(calculatePrice(order)).toBe(28.95);
   });
 
-  // // Test case for invalid productType (if applicable)
-  // it('should return 0 for an unknown product type', () => {
-  //   const order = {
-  //     productType: 'unknown',
-  //     color: 'green',
-  //     material: 'light',
-  //     text: '',
-  //     image: [],
-  //   };
-  //   expect(calculatePrice(order)).toBe(0);
-  // });
+  // Test case for invalid productType (if applicable)
+  it('should return 0 for an unknown product type', () => {
+    const order = {
+      productType: 'unknown',
+      color: 'green',
+      material: 'light',
+      text: '',
+      image: '',
+      price: 0,
+      currency: 'CAD',
+      isImageUploaded: false,
+    };
+    expect(calculatePrice(order)).toBe(0);
+  });
 
   // // Test case for an empty order
   // it('should return 0 for an empty order object', () => {
