@@ -24,11 +24,13 @@ describe('OrderDetails', () => {
     jest
       .spyOn(require('react-router-dom'), 'useParams')
       .mockReturnValue({ id: '123' });
+
     const { baseElement } = render(
       <Router>
         <OrderDetails currency={{ USD: 1 }} />
       </Router>
     );
+
     expect(baseElement).toBeTruthy();
     expect(screen.getByText('Loading...')).toBeTruthy();
   });
@@ -36,11 +38,13 @@ describe('OrderDetails', () => {
   // Test when order ID is invalid (no ID in the URL)
   it('renders Invalid order ID message when no id in URL', () => {
     jest.spyOn(require('react-router-dom'), 'useParams').mockReturnValue({});
+
     render(
       <Router>
         <OrderDetails currency={{ USD: 1 }} />
       </Router>
     );
+
     expect(screen.getByText('Invalid order ID.')).toBeTruthy();
   });
 
@@ -49,14 +53,17 @@ describe('OrderDetails', () => {
     jest
       .spyOn(require('react-router-dom'), 'useParams')
       .mockReturnValue({ id: '123' });
+
     (axios.get as jest.Mock).mockRejectedValueOnce(
       new Error('Order not found')
     );
+
     render(
       <Router>
         <OrderDetails currency={{ USD: 1 }} />
       </Router>
     );
+
     await waitFor(() =>
       expect(screen.getByText('Order not found.')).toBeTruthy()
     );
@@ -67,6 +74,7 @@ describe('OrderDetails', () => {
     jest
       .spyOn(require('react-router-dom'), 'useParams')
       .mockReturnValue({ id: '123' });
+
     const orderData = {
       id: '123',
       image: 'http://0.0.0.0:9000/image.jpg',
@@ -77,13 +85,17 @@ describe('OrderDetails', () => {
       price: 25,
       currency: 'USD',
     };
+
     (axios.get as jest.Mock).mockResolvedValueOnce({ data: orderData });
+
     render(
       <Router>
         <OrderDetails currency={{ USD: 1 }} />
       </Router>
     );
+
     await waitFor(() => expect(screen.getByText('Item: T-shirt')).toBeTruthy());
+
     expect(screen.getByText('Material: Cotton')).toBeTruthy();
     expect(screen.getByText('Color: Red')).toBeTruthy();
     expect(screen.getByText('T-shirt Text: Custom Text')).toBeTruthy();
