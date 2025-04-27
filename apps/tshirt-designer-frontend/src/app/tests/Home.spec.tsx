@@ -25,9 +25,11 @@ describe('Home component tests', () => {
 
   it('renders product type and material dropdowns', () => {
     render(<Home currency={currency} />);
+
     // Test if product type dropdown is rendered
     const productTypeSelect = screen.getByLabelText(/select product/i);
     expect(productTypeSelect).toBeTruthy();
+
     // Test if material dropdown is rendered when product type is selected
     fireEvent.change(productTypeSelect, { target: { value: 'tshirt' } });
     const materialSelect = screen.getByLabelText(/select material/i);
@@ -36,10 +38,13 @@ describe('Home component tests', () => {
 
   it('handles product type and material change', () => {
     render(<Home currency={currency} />);
+
     const productTypeSelect = screen.getByLabelText(/select product/i);
     fireEvent.change(productTypeSelect, { target: { value: 'tshirt' } });
+
     const materialSelect = screen.getByLabelText(/select material/i) as any;
     fireEvent.change(materialSelect, { target: { value: 'Light Cotton' } });
+
     // Check if the state updates correctly
     expect(materialSelect.value).toBe('Light Cotton');
   });
