@@ -4,7 +4,9 @@ import { BrowserRouter } from 'react-router-dom';
 import App from '../app';
 
 jest.mock('axios');
+
 const mockedAxios = axios as jest.Mocked<typeof axios>;
+
 mockedAxios.get.mockResolvedValue({
   data: { rates: { CAD: 1.559263, EUR: 1, USD: 1.09595 } },
 });
@@ -19,6 +21,7 @@ describe('App', () => {
         <App />
       </BrowserRouter>
     );
+
     expect(baseElement).toBeTruthy();
     expect(getAllByText(/T-Shirt Designer/i)).toBeTruthy();
     expect(getByText(/Home/i)).toBeTruthy();
@@ -34,12 +37,15 @@ describe('App', () => {
         <App />
       </BrowserRouter>
     );
+
     await waitFor(() => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
         'http://0.0.0.0:9000/exchangerates'
       );
     });
+
     const response = await mockedAxios.get('http://0.0.0.0:9000/exchangerates');
+
     expect(response.data).toStrictEqual({
       rates: { CAD: 1.559263, EUR: 1, USD: 1.09595 },
     });
@@ -51,8 +57,10 @@ describe('App', () => {
         <App />
       </BrowserRouter>
     );
+
     const ordersLink = getByText(/Orders/i);
     fireEvent.click(ordersLink);
+
     expect(getAllByText(/Orders/i)).toBeTruthy();
     expect(getByText(/No orders found./i)).toBeTruthy();
   });
