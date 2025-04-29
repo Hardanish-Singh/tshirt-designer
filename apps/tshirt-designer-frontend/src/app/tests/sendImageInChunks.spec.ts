@@ -85,7 +85,6 @@ describe('sendImageInChunks', () => {
     const mockResponse = { status: 200, data: 'success' };
     (axios.post as jest.Mock).mockResolvedValue(mockResponse);
 
-    // Call the function
     await sendImageInChunks(base64String);
 
     // Verify that axios.post was not called because there are no chunks
