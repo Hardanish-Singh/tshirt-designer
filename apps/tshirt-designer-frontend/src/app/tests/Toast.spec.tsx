@@ -8,7 +8,9 @@ describe('Toast Component', () => {
     const onClose = jest.fn();
     const message = 'Success message';
     const type = 'success';
+
     render(<Toast message={message} type={type} onClose={onClose} />);
+
     expect(screen.getByText(message)).toBeTruthy();
   });
 
@@ -16,7 +18,9 @@ describe('Toast Component', () => {
     const onClose = jest.fn();
     const message = 'Error message';
     const type = 'error';
+
     render(<Toast message={message} type={type} onClose={onClose} />);
+
     // Check if the message is rendered correctly
     expect(screen.getByText(message)).toBeTruthy();
   });
