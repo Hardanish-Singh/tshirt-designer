@@ -5,6 +5,7 @@ import Orders from '../components/Orders';
 
 // Mock axios and react-router-dom
 jest.mock('axios');
+
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useNavigate: jest.fn(),
@@ -22,6 +23,7 @@ describe('Orders', () => {
   // Test for an empty state (no orders)
   it('renders loading state initially (no orders)', async () => {
     (axios.get as jest.Mock).mockResolvedValueOnce({ data: [] });
+
     await act(async () => {
       render(
         <Router>
@@ -29,6 +31,7 @@ describe('Orders', () => {
         </Router>
       );
     });
+
     // Wait for the component to finish rendering
     expect(screen.getByText('Orders')).toBeTruthy();
     expect(screen.getByText('No orders found.')).toBeTruthy();
@@ -48,7 +51,9 @@ describe('Orders', () => {
         isImageUploaded: true,
       },
     ];
+
     (axios.get as jest.Mock).mockResolvedValueOnce({ data: ordersData });
+
     await act(async () => {
       render(
         <Router>
@@ -56,6 +61,7 @@ describe('Orders', () => {
         </Router>
       );
     });
+
     await waitFor(() => {
       expect(screen.getByText('Item: T-shirt')).toBeTruthy();
       expect(screen.getByText('Material: Cotton')).toBeTruthy();
