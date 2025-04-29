@@ -42,10 +42,13 @@ describe('Toast Component', () => {
     const { unmount } = render(
       <Toast message="Toast" type="success" onClose={onClose} />
     );
+
     // Unmount the component
     unmount();
+
     // Ensure that the timeout is cleared and onClose is not called
     jest.advanceTimersByTime(1000);
+
     expect(onClose).toHaveBeenCalledTimes(0);
   });
 });
