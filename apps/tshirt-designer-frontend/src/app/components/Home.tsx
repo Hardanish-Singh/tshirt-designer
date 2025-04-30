@@ -62,7 +62,6 @@ const Home = ({ currency }: { currency: Currency }) => {
           price: prevOrder.isImageUploaded ? prevOrder.price : newPrice,
           isImageUploaded: true,
         }));
-        // Add event listener for image preview only once
         if (!isEventListenerAdded) {
           setIsEventListenerAdded(true);
         }
