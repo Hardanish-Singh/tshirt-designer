@@ -91,7 +91,6 @@ const Home = ({ currency }: { currency: Currency }) => {
         show: true,
       });
     }
-    // Reset the form
     setOrder(initialOrder);
     setFilename('');
     setImagePreview(null);
