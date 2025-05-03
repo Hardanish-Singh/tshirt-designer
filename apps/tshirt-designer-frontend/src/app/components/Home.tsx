@@ -337,7 +337,7 @@ const Home = ({ currency }: { currency: Currency }) => {
             </button>
           </div>
         )}
-        {/* Toast Notifications */}
+        {/* TOAST Notifications */}
         {toast.show && (
           <Toast
             message={toast.message}
