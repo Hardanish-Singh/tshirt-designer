@@ -1,12 +1,9 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { Currency } from '../types/types';
 
-const OrderDetails = ({
-  currency,
-}: {
-  currency: { [key: string]: number };
-}) => {
+const OrderDetails = ({ currency }: { currency: Currency }) => {
   const { id } = useParams(); // Fetch the order ID from the URL
   const [order, setOrder] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
