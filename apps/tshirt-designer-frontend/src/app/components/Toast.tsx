@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
+import { TIMEOUT } from '../constants';
 import { ToastProps } from '../types/types';
 
 const Toast = ({ message, type, onClose }: ToastProps) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose();
-    }, 500);
+    }, TIMEOUT);
     return () => clearTimeout(timer);
   }, [message, onClose]);
 
