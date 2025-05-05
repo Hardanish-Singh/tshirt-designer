@@ -2,11 +2,10 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import axios from 'axios';
 import Home from '../components/Home';
 
-// Mocking the axios and helper functions
 jest.mock('axios');
 
 jest.mock('../helper/calculatePrice', () => ({
-  calculatePrice: jest.fn(() => 10), // Example price calculation
+  calculatePrice: jest.fn(() => 10),
 }));
 
 jest.mock('../helper/sendImageInChunks', () => ({
