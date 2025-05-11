@@ -3,7 +3,6 @@ import axios from 'axios';
 import { BrowserRouter as Router } from 'react-router-dom';
 import OrderDetails from '../components/OrderDetails';
 
-// Mock axios and react-router-dom
 jest.mock('axios');
 
 jest.mock('react-router-dom', () => ({
