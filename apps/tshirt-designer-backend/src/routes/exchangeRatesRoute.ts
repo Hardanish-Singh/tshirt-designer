@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { Request, Response, Router } from 'express';
-const router = Router();
 
 const API_KEY = '7375b3b6cc8eb92747bbd496cbffd0c6';
+
+const router = Router();
+
 router.get('/', async (req: Request, res: Response) => {
   try {
     const response = await axios.get(
