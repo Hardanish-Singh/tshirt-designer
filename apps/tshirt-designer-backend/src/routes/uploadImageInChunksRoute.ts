@@ -1,8 +1,9 @@
 import { Router } from 'express';
 import { orders } from '../contants';
-const router = Router();
 
 let imageChunks: string[] = [];
+
+const router = Router();
 
 router.post('/', async (req, res) => {
   try {
