@@ -18,6 +18,7 @@ router.get('/', async (req: Request, res: Response) => {
   } catch (error) {
     // console.error('Error fetching data:', error);
     // res.status(500).send({ error: 'Error fetching data' });
+
     // For now will send 200 even if error is thrown, if API_KEY expires
     res.status(200).send({
       CAD: 1.559263,
