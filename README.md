@@ -1,4 +1,4 @@
-# TshirtDesigner.
+# TshirtDesigner
 
 ## SETUP USING DOCKER COMPOSE
 
