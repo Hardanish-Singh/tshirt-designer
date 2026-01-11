@@ -9,6 +9,7 @@ const host = process.env.HOST ?? '0.0.0.0';
 const port = process.env.PORT ? Number(process.env.PORT) : 9000;
 
 const app = express();
+
 app.use(express.json({ limit: '2mb' }));
 app.use(cors());
 app.use(express.urlencoded({ limit: '2mb', extended: true }));
