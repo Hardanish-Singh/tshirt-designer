@@ -6,7 +6,11 @@ import { sendImageInChunks } from '../helper/sendImageInChunks';
 import { Currency } from '../types/types';
 import Toast from './Toast';
 
-const Home = ({ currency }: { currency: Currency }) => {
+type HomeProps = {
+  currency: Currency;
+};
+
+const Home = ({ currency }: HomeProps) => {
   const [order, setOrder] = useState(initialOrder);
   const [filename, setFilename] = useState('');
   const [imagePreview, setImagePreview] = useState(null);
