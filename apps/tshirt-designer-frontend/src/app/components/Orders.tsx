@@ -3,7 +3,11 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Currency, Order } from '../types/types';
 
-const Orders = ({ currency }: { currency: Currency }) => {
+type OrdersProps = {
+  currency: Currency;
+};
+
+const Orders = ({ currency }: OrdersProps) => {
   const navigate = useNavigate();
   const [orders, setOrders] = useState<Order[]>([]);
 
