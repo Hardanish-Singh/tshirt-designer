@@ -9,6 +9,7 @@ const swcJestConfig = JSON.parse(
 // Disable .swcrc look-up by SWC core because we're passing in swcJestConfig ourselves
 swcJestConfig.swcrc = false;
 
+// Jest configuration for the backend application
 export default {
   displayName: '@tshirt-designer/tshirt-designer-backend',
   preset: '../../jest.preset.js',
