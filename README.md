@@ -45,11 +45,13 @@ Run URL: http://localhost:4200/
 ```sh
 # ONLY RUN FRONTEND
 npx nx serve tshirt-designer-frontend
+
 # RUN FRONTEND TESTS
 npx nx test tshirt-designer-frontend
 
 # ONLY RUN BACKEND
 npx nx serve tshirt-designer-backend
+
 # RUN BACKEND TESTS
 npx nx test tshirt-designer-backend
 ```
