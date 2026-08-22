@@ -1,4 +1,5 @@
 // Jest configuration for the frontend application
+
 export default {
   displayName: 'tshirt-designer-frontend',
   preset: '../../jest.preset.js',
